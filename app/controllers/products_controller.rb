@@ -2,7 +2,8 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
   def index
-    @products=Product.all
+    @q = Product.ransack(params[:q])
+    @products = @q.result(distinct: true)
   end
   def new
     @product=Product.new
@@ -12,7 +13,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to products_path, notice: "Product created successfully"
     else
-      render :new
+      render :new 
     end
   end
 
