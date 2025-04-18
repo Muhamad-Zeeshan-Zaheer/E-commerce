@@ -1,0 +1,28 @@
+<%= search_form_for @q, url: products_path, method: :get, html: { class: "mb-4" } do |f| %>
+  <div class="row g-3 align-items-end">
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= f.label :name_cont, "Search by Name", class: "form-label" %>
+        <%= f.search_field :name_cont, class: "form-control", placeholder: "Search by name" %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= f.label :description_cont, "Search by Description", class: "form-label" %>
+        <%= f.search_field :description_cont, class: "form-control", placeholder: "Search by description" %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= f.label :price_eq, "Search by Price", class: "form-label" %>
+        <%= f.search_field :price_eq, class: "form-control", placeholder: "Search by price" %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <%= f.submit "Search", class: "btn btn-success w-100" %>
+    </div>
+  </div>
+<% end %>
