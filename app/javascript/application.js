@@ -3,3 +3,11 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "popper"
 import "bootstrap"
+import { showAlert } from "hello_alert"
+
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("alert-button")
+  if (btn) {
+    btn.addEventListener("click", showAlert)
+  }
+})

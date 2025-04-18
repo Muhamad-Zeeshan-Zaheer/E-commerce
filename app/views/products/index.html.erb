@@ -1,6 +1,7 @@
 <div class="text-end me-2 mt-3">
   <%= link_to "New Product", new_product_path, class: "btn btn-primary" %>
 </div>
+<button id="alert-button">Click Me</button>
 
 <table class="table table-striped">
   <thead>
@@ -20,7 +21,11 @@
         <td><%= product.price %></td>
         <td>
           <%= link_to "Edit", edit_product_path(product), class: "btn btn-warning" %>
-          <%= link_to "Delete", product_path(product), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+          <%= link_to "Destroy", product_path(product),class: "btn btn-danger", data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+
         </td>
       </tr>
     <% end %>
